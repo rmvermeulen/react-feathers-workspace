@@ -1,0 +1,7 @@
+modules:
+  - '@fimbul/heimdall'
+project:
+  - tsconfig.json
+references: true
+exclude:
+  - '**/*.d.ts'

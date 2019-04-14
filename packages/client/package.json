@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "name": "client",
+  "description": "Realtime app using React/Feathers",
+  "license": "MIT",
+  "author": "Rasmus Vermeulen",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "pre-commit": "lint-staged",
+    "dev": "parcel index.html",
+    "lint": "wotan",
+    "start": "parcel index.html",
+    "test": "jest --passWithNoTests"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@fimbul/heimdall": "^0.20.0",
+    "@fimbul/wotan": "^0.20.0",
+    "@types/jest": "^24.0.11",
+    "expect-more-jest": "^2.4.1",
+    "jest": "^24.7.1",
+    "jest-extended": "^0.11.1",
+    "jest-watch-suspend": "^1.1.1",
+    "jest-watch-typeahead": "^0.3.0",
+    "lint-staged": "^8.1.5",
+    "prettier-package-json": "^2.1.0",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.4.3"
+  }
+}
