@@ -1,3 +1,7 @@
 import { App } from '../app';
 
-export const services = (app: App) => {};
+import { Messages } from './messages';
+
+export const services = (app: App) => {
+  app.use('/messages', new Messages());
+};

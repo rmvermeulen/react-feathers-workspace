@@ -7,12 +7,17 @@
   "bugs": {},
   "version": "0.0.0",
   "main": "src",
+  "directories": {
+    "config": "config/",
+    "lib": "src",
+    "test": "__tests__/"
+  },
   "scripts": {
     "pre-commit": "lint-staged",
     "dev": "nodemon -r ts-node/register src/ -e ts,tsx -w src",
     "e2e": "jest -c jest-e2e.config.js",
     "lint": "wotan",
-    "start": "ts-node src/",
+    "start": "ts-node src/index.ts",
     "test": "jest --passWithNoTests"
   },
   "dependencies": {
@@ -25,13 +30,18 @@
     "compression": "^1.7.3",
     "cors": "^2.8.5",
     "helmet": "^3.15.0",
+    "mysql": "^2.14.1",
+    "reflect-metadata": "^0.1.10",
     "serve-favicon": "^2.5.0",
+    "typeorm": "0.2.16",
+    "typescript": "^3.4.3",
     "winston": "^3.0.0"
   },
   "devDependencies": {
     "@fimbul/heimdall": "^0.20.0",
     "@fimbul/mithotyn": "^0.18.0",
     "@fimbul/wotan": "^0.20.0",
+    "@types/chai": "^4.1.7",
     "@types/compression": "^0.0.36",
     "@types/cors": "^2.8.4",
     "@types/feathersjs__configuration": "^1.0.2",
@@ -39,9 +49,10 @@
     "@types/feathersjs__socketio": "^3.0.4",
     "@types/helmet": "^0.0.43",
     "@types/jest": "^24.0.11",
-    "@types/node": "^11.13.4",
+    "@types/node": "^8.0.29",
     "@types/request-promise": "^4.1.42",
     "@types/serve-favicon": "^2.2.30",
+    "chai": "^4.2.0",
     "expect-more-jest": "^2.4.1",
     "jest": "^24.7.1",
     "jest-extended": "^0.11.1",
@@ -53,7 +64,7 @@
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
     "ts-jest": "^24.0.2",
-    "ts-node": "^8.0.3"
+    "ts-node": "3.3.0"
   },
   "keywords": [
     "feathers"
