@@ -1,2 +1,3 @@
-// eslint-disable-next-line no-unused-vars
-module.exports = function(app) {};
+import { App } from '../app';
+
+export const services = (app: App) => {};

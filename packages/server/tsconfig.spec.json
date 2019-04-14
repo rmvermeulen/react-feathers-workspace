@@ -3,6 +3,6 @@
   "compilerOptions": {
     "types": ["jest", "jest-extended", "expect-more"]
   },
-  "include": ["src/*.spec.tsx"],
+  "include": ["src/**/*.spec.ts", "e2e/**/*.e2e.ts"],
   "exclude": ["node_modules"]
 }

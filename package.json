@@ -12,7 +12,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/jest"
+      "**/jest*",
+      "**/@types*"
     ]
   },
   "version": "1.0.0",

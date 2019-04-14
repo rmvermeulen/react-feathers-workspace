@@ -1,9 +1,11 @@
-const rp = require('request-promise');
-const url = require('url');
-const app = require('../src/app');
+import { Server } from 'http';
+import rp from 'request-promise';
+import url from 'url';
+
+import { app } from '../src/app';
 
 const port = app.get('port') || 3030;
-const getUrl = (pathname) =>
+const getUrl = (pathname?: string) =>
   url.format({
     hostname: app.get('host') || 'localhost',
     protocol: 'http',
@@ -12,20 +14,19 @@ const getUrl = (pathname) =>
   });
 
 describe('Feathers application tests (with jest)', () => {
+  let server: Server;
   beforeAll((done) => {
-    this.server = app.listen(port);
-    this.server.once('listening', () => done());
+    server = app.listen(port);
+    server.once('listening', () => done());
   });
 
   afterAll((done) => {
-    this.server.close(done);
+    server.close(done);
   });
 
-  it('starts and shows the index page', () => {
+  it('starts and shows the index page', async () => {
     expect.assertions(1);
-    return rp(getUrl()).then((body) =>
-      expect(body.indexOf('<html>')).not.toBe(-1),
-    );
+    await expect(rp(getUrl())).resolves.toContain('<html>');
   });
 
   describe('404', () => {
