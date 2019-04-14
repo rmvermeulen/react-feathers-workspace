@@ -1,33 +1,23 @@
 {
   "name": "server",
   "description": "Server using Feathersjs",
-  "version": "0.0.0",
-  "homepage": "",
-  "main": "src",
-  "keywords": [
-    "feathers"
-  ],
-  "author": {
-    "name": "Rasmus Vermeulen",
-    "email": "vermeulen.rasmus@gmail.com"
-  },
+  "author": "Rasmus Vermeulen <vermeulen.rasmus@gmail.com>",
   "contributors": [],
+  "homepage": "",
   "bugs": {},
+  "version": "0.0.0",
+  "main": "src",
   "directories": {
+    "config": "config/",
     "lib": "src",
-    "test": "test/",
-    "config": "config/"
-  },
-  "engines": {
-    "node": "^10.0.0",
-    "yarn": ">= 0.18.0"
+    "test": "test/"
   },
   "scripts": {
-    "test": "yarn run eslint && NODE_ENV= yarn run jest",
-    "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "dev": "nodemon src/",
-    "start": "node src/",
-    "jest": "jest"
+    "pre-commit": "lint-staged",
+    "dev": "nodemon -r ts-node/register src/",
+    "lint": "wotan",
+    "start": "ts-node src/",
+    "test": "jest"
   },
   "dependencies": {
     "@feathersjs/configuration": "^2.0.4",
@@ -42,10 +32,25 @@
     "winston": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
+    "@fimbul/heimdall": "^0.20.0",
+    "@fimbul/wotan": "^0.20.0",
+    "@types/jest": "^24.0.11",
+    "expect-more-jest": "^2.4.1",
     "jest": "^24.7.1",
+    "jest-extended": "^0.11.1",
+    "lint-staged": "^8.1.5",
     "nodemon": "^1.18.7",
+    "prettier-package-json": "^2.1.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.0.3"
+  },
+  "keywords": [
+    "feathers"
+  ],
+  "engines": {
+    "node": "^10.0.0",
+    "yarn": ">= 0.18.0"
   }
 }

@@ -1,0 +1,6 @@
+extends: wotan:recommended
+rulesDirectories:
+  tslint: . # enables TSLint core rules
+rules:
+  tslint/ordered-imports:
+    options: 'grouped-imports'
