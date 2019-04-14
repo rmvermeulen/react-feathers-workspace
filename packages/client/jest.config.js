@@ -11,6 +11,7 @@ module.exports = {
   coveragePathIgnorePatterns: ['setupJest', '.json'],
   globals: {
     'ts-jest': {
+      project: 'tsconfig.spec.json',
       diagnostics: {
         warnOnly: true,
       },
