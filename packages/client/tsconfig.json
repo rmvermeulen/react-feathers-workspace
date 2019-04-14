@@ -4,6 +4,7 @@
     "module": "commonjs",
     "lib": ["esnext"],
     "noEmit": true,
+    "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
