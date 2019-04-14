@@ -22,6 +22,8 @@
     "@fimbul/heimdall": "^0.20.0",
     "@fimbul/wotan": "^0.20.0",
     "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
     "expect-more-jest": "^2.4.1",
     "jest": "^24.7.1",
     "jest-extended": "^0.11.1",
