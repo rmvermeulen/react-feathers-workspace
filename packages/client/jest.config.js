@@ -1,7 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['jest-extended', 'expect-more-jest'],
+  setupFilesAfterEnv: [
+    './configureEnzyme.ts',
+    'jest-extended',
+    'expect-more-jest',
+  ],
   verbose: true,
   collectCoverage: true,
   coveragePathIgnorePatterns: ['setupJest', '.json'],
