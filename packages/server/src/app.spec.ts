@@ -1,7 +1,13 @@
-import { app } from '../src/app';
+import { createApplication } from "../src/app";
+import { createTestConnection } from "../test/testConnection";
 
-describe('App', () => {
-  test('is server', () => {
+jest.mock("./services/index.ts", () => ({
+  services: () => () => {}
+}));
+
+describe("App", () => {
+  test("is server", async () => {
+    const app = createApplication({} as any);
     expect(app).toBeDefined();
     expect(app.listen).toBeFunction();
   });

@@ -1,19 +1,24 @@
-import { Id, Params } from '@feathersjs/feathers';
-import { DeepPartial, getRepository } from 'typeorm';
-import { App } from '../app';
-import { Message } from '../entity/Message';
-import { User } from '../entity/User';
+import { Id, Params } from "@feathersjs/feathers";
+import { assert } from "chai";
+import { Connection, DeepPartial, getRepository, Repository } from "typeorm";
 
-import { assert } from 'chai';
+import { App } from "../app";
+import { Message } from "../entity/Message.entity";
+import { logger } from "../logger";
 
 type CreateOne<T> = DeepPartial<T>;
 type CreateMany<T> = DeepPartial<T>[];
-type CreateData<T> = CreateOne<T> | CreateMany<T>;
 
 type MessageData = CreateOne<Message>;
 
-export class Messages {
-  private repo = getRepository(Message);
+export class MessageService {
+  private _maybeRepo: undefined | Repository<Message>;
+  private get repo(): Repository<Message> {
+    if (!this._maybeRepo) {
+      this._maybeRepo = getRepository(Message);
+    }
+    return this._maybeRepo;
+  }
   async find(params: Params) {
     return this.repo.find(params.query);
   }
@@ -21,7 +26,7 @@ export class Messages {
     if (id) {
       return this.repo.find({ id: Number(id) });
     }
-    assert.property(params, 'query');
+    assert.property(params, "query");
 
     return this.repo.find(params!.query);
   }
@@ -30,7 +35,7 @@ export class Messages {
   async create(data: MessageData[], params: Params): Promise<Message[]>;
   async create(data: MessageData | MessageData[], params: Params) {
     if (Array.isArray(data)) {
-      const messages = data.map((message) => this.repo.create(message));
+      const messages = data.map(message => this.repo.create(message));
       return this.repo.save(messages);
     }
     const message = this.repo.create(data);
@@ -50,12 +55,14 @@ export class Messages {
   }
   async remove(id: Id | Id[] | null, params?: Params) {
     if (id === null) {
-      assert.property(params, 'query');
+      assert.property(params, "query");
       assert(params!.query);
       return this.repo.delete(params!.query!);
     }
     const idsToDelete = Array.isArray(id) ? id.map(Number) : Number(id);
     return this.repo.delete(idsToDelete);
   }
-  setup(app: App, path: string) {}
+  setup(app: App, path: string) {
+    logger.info("message service setup (path=%s)", path);
+  }
 }

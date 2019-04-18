@@ -33,6 +33,7 @@
     "mysql": "^2.14.1",
     "reflect-metadata": "^0.1.10",
     "serve-favicon": "^2.5.0",
+    "sqlite3": "^4.0.6",
     "typeorm": "0.2.16",
     "typescript": "^3.4.3",
     "winston": "^3.0.0"
@@ -52,6 +53,7 @@
     "@types/node": "^8.0.29",
     "@types/request-promise": "^4.1.42",
     "@types/serve-favicon": "^2.2.30",
+    "@types/sqlite3": "^3.1.5",
     "chai": "^4.2.0",
     "expect-more-jest": "^2.4.1",
     "jest": "^24.7.1",

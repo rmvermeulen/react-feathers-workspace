@@ -3,4 +3,5 @@ rulesDirectories:
   tslint: . # enables TSLint core rules
 rules:
   tslint/ordered-imports:
-    options: 'grouped-imports'
+    options:
+      grouped-imports: true
